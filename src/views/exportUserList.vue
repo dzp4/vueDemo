@@ -1,6 +1,7 @@
 <template>
     <div>
         <el-button type="primary" @click="exportExcel">download<i class="el-icon-download el-icon--right"></i></el-button>
+        <el-button type="primary" @click="getSomeData">getSomeData<i class="el-icon-bell el-icon--right"></i></el-button>
     </div>
 </template>
 
@@ -28,6 +29,16 @@ export default {
             }).catch(res=>{
                 console.log(res);
             })
+        },
+        getSomeData(){
+            let url = "/getSomeData";
+            this.$ajax({
+                method:'post',
+                url:url
+            }).then(res=>{
+                console.log(res.data.data);
+            })
+            
         }
     }
 }
